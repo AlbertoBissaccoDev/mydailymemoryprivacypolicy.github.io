@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyDailyMemory - Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #FDFBF7;
+      --text: #3E2723;
+      --accent: #F5A076;
+      --card: #FFFFFF;
+      --muted: #8D6E63;
+      --border: #E0D5CC;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 0;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--accent), #E8967A);
+      color: white;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .header p { font-size: 14px; opacity: 0.9; }
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .lang-switch button {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: white;
+      padding: 6px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .lang-switch button.active,
+    .lang-switch button:hover {
+      background: rgba(255,255,255,0.4);
+    }
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+    h2 {
+      font-size: 20px;
+      color: var(--accent);
+      margin-top: 32px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border);
+    }
+    h3 {
+      font-size: 16px;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    p, li { font-size: 15px; color: var(--text); margin-bottom: 8px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 4px; }
+    .highlight {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .highlight strong { color: var(--accent); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th { background: var(--card); font-weight: 600; }
+    .footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+    @media (max-width: 600px) {
+      .header h1 { font-size: 22px; }
+      .content { padding: 24px 16px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>MyDailyMemory</h1>
+  <p>Privacy Policy</p>
+  <div class="lang-switch">
+    <button id="btn-en" class="active" onclick="switchLang('en')">English</button>
+    <button id="btn-it" onclick="switchLang('it')">Italiano</button>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- ==================== ENGLISH ==================== -->
+  <div id="lang-en" class="lang-section active">
+
+    <p><strong>Last updated:</strong> March 19, 2026</p>
+    <p>MyDailyMemory ("we", "our", "the app") is a personal memory journal application. We are committed to protecting your privacy and being transparent about the data we collect.</p>
+
+    <h2>1. Data We Collect</h2>
+
+    <h3>1.1 Data you provide</h3>
+    <table>
+      <tr><th>Data type</th><th>Details</th><th>Purpose</th></tr>
+      <tr><td>Photos</td><td>Taken with camera or selected from gallery</td><td>Store your daily memories</td></tr>
+      <tr><td>Memory metadata</td><td>Title, description, mood, labels, favorite status</td><td>Organize and enrich your memories</td></tr>
+      <tr><td>Email address</td><td>Only if you create an account</td><td>Authentication and account recovery</td></tr>
+      <tr><td>Display name</td><td>Only if you sign in with Google</td><td>Show your name in the app</td></tr>
+      <tr><td>Feedback</td><td>Messages you submit via the feedback feature</td><td>Improve the app</td></tr>
+    </table>
+
+    <h3>1.2 Data generated automatically</h3>
+    <table>
+      <tr><th>Data type</th><th>Purpose</th></tr>
+      <tr><td>Notification preferences</td><td>Schedule daily reminders at your preferred time</td></tr>
+      <tr><td>In-game progress</td><td>Coins, achievements, shop purchases, daily challenges</td></tr>
+      <tr><td>Memory save timestamps</td><td>Adapt smart notification timing to your habits</td></tr>
+    </table>
+
+    <h3>1.3 Data we do NOT collect</h3>
+    <div class="highlight">
+      <ul>
+        <li>We do <strong>not</strong> collect your location</li>
+        <li>We do <strong>not</strong> collect device identifiers or advertising IDs</li>
+        <li>We do <strong>not</strong> use analytics, crash reporting, or tracking SDKs</li>
+        <li>We do <strong>not</strong> serve ads</li>
+        <li>We do <strong>not</strong> sell your data to third parties</li>
+      </ul>
+    </div>
+
+    <h2>2. How Your Photos Are Stored</h2>
+    <div class="highlight">
+      <p><strong>Your photos never leave your device.</strong> They are stored only in the app's private directory on your phone. Only the text metadata (title, description, mood) is synced to the cloud if you create an account. Photos are not uploaded, shared, or accessible to anyone else.</p>
+    </div>
+
+    <h2>3. Cloud Sync &amp; Third-Party Services</h2>
+    <p>If you create an account (email/password or Google Sign-In), the following data is synced to <strong>Google Firebase</strong>:</p>
+    <ul>
+      <li>Memory metadata (title, description, mood, labels &mdash; <strong>not photos</strong>)</li>
+      <li>In-game progress (coins, achievements, shop state)</li>
+      <li>Daily challenge progress</li>
+      <li>Notification preferences</li>
+    </ul>
+    <p>Firebase services used:</p>
+    <ul>
+      <li><strong>Firebase Authentication</strong> &mdash; for account management</li>
+      <li><strong>Cloud Firestore</strong> &mdash; for storing metadata</li>
+    </ul>
+    <p>Google's privacy policy applies to Firebase services: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+
+    <h3>Guest mode</h3>
+    <p>You can use the app without creating an account. In guest mode, all data is stored locally on your device only. An anonymous Firebase session is created for technical purposes but does not collect personal information.</p>
+
+    <h2>4. Data Sharing</h2>
+    <p>We do <strong>not</strong> share, sell, or rent your personal data to any third party. Your data is only processed through Google Firebase as described above.</p>
+
+    <h2>5. Data Retention</h2>
+    <ul>
+      <li><strong>Local data:</strong> Stored until you delete the memory, uninstall the app, or clear app data.</li>
+      <li><strong>Cloud data:</strong> Stored until you delete your account. Account deletion removes all associated data from Firebase.</li>
+      <li><strong>Feedback:</strong> Retained for the purpose of improving the app and may be deleted periodically.</li>
+    </ul>
+
+    <h2>6. Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> your data &mdash; all your data is visible within the app</li>
+      <li><strong>Delete</strong> your data &mdash; use "Delete account" in Settings to permanently remove all cloud data</li>
+      <li><strong>Rectify</strong> your data &mdash; edit or delete any memory at any time</li>
+      <li><strong>Withdraw consent</strong> &mdash; sign out to stop cloud sync; uninstall to remove all local data</li>
+    </ul>
+    <p>Under GDPR (EU users) and CCPA (California users), you have additional rights including data portability and the right to object to processing. Contact us to exercise these rights.</p>
+
+    <h2>7. Data Security</h2>
+    <ul>
+      <li>All data in transit is encrypted via HTTPS (enforced by Firebase)</li>
+      <li>Cloud data is stored on Google's infrastructure with industry-standard security</li>
+      <li>App backups to Google Cloud are disabled to prevent unintended data exposure</li>
+      <li>Release builds use code obfuscation to protect against reverse engineering</li>
+    </ul>
+
+    <h2>8. Children's Privacy</h2>
+    <p>MyDailyMemory is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
+
+    <h2>9. Permissions Used</h2>
+    <table>
+      <tr><th>Permission</th><th>Reason</th></tr>
+      <tr><td>Camera</td><td>Take photos for your memories (optional)</td></tr>
+      <tr><td>Photo library</td><td>Select existing photos for your memories</td></tr>
+      <tr><td>Notifications</td><td>Send daily reminders at your preferred time</td></tr>
+      <tr><td>Vibration</td><td>Haptic feedback on interactions</td></tr>
+    </table>
+    <p>All permissions are optional. The app works without granting them, with reduced functionality.</p>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top will reflect the most recent revision. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>11. Contact Us</h2>
+    <p>For any privacy-related questions, data requests, or concerns:</p>
+    <p><strong>Email:</strong> privacy@mydailymemory.app</p>
+
+  </div>
+
+  <!-- ==================== ITALIANO ==================== -->
+  <div id="lang-it" class="lang-section">
+
+    <p><strong>Ultimo aggiornamento:</strong> 19 marzo 2026</p>
+    <p>MyDailyMemory ("noi", "l'app") &egrave; un'applicazione di diario visivo personale. Ci impegniamo a proteggere la tua privacy e ad essere trasparenti sui dati che raccogliamo.</p>
+
+    <h2>1. Dati che raccogliamo</h2>
+
+    <h3>1.1 Dati che fornisci tu</h3>
+    <table>
+      <tr><th>Tipo di dato</th><th>Dettagli</th><th>Finalit&agrave;</th></tr>
+      <tr><td>Foto</td><td>Scattate con la fotocamera o selezionate dalla galleria</td><td>Salvare i tuoi ricordi quotidiani</td></tr>
+      <tr><td>Metadati dei ricordi</td><td>Titolo, descrizione, umore, etichette, stato preferito</td><td>Organizzare e arricchire i tuoi ricordi</td></tr>
+      <tr><td>Indirizzo email</td><td>Solo se crei un account</td><td>Autenticazione e recupero account</td></tr>
+      <tr><td>Nome visualizzato</td><td>Solo se accedi con Google</td><td>Mostrare il tuo nome nell'app</td></tr>
+      <tr><td>Feedback</td><td>Messaggi inviati tramite la funzione feedback</td><td>Migliorare l'app</td></tr>
+    </table>
+
+    <h3>1.2 Dati generati automaticamente</h3>
+    <table>
+      <tr><th>Tipo di dato</th><th>Finalit&agrave;</th></tr>
+      <tr><td>Preferenze notifiche</td><td>Programmare i promemoria giornalieri all'orario preferito</td></tr>
+      <tr><td>Progressi di gioco</td><td>Monete, traguardi, acquisti nel negozio, sfide giornaliere</td></tr>
+      <tr><td>Timestamp dei salvataggi</td><td>Adattare il timing delle notifiche smart alle tue abitudini</td></tr>
+    </table>
+
+    <h3>1.3 Dati che NON raccogliamo</h3>
+    <div class="highlight">
+      <ul>
+        <li><strong>Non</strong> raccogliamo la tua posizione</li>
+        <li><strong>Non</strong> raccogliamo identificatori del dispositivo o ID pubblicitari</li>
+        <li><strong>Non</strong> utilizziamo SDK di analytics, crash reporting o tracciamento</li>
+        <li><strong>Non</strong> mostriamo pubblicit&agrave;</li>
+        <li><strong>Non</strong> vendiamo i tuoi dati a terze parti</li>
+      </ul>
+    </div>
+
+    <h2>2. Come vengono conservate le tue foto</h2>
+    <div class="highlight">
+      <p><strong>Le tue foto non lasciano mai il tuo dispositivo.</strong> Sono conservate solo nella directory privata dell'app sul tuo telefono. Solo i metadati testuali (titolo, descrizione, umore) vengono sincronizzati nel cloud se crei un account. Le foto non vengono caricate, condivise o rese accessibili a nessun altro.</p>
+    </div>
+
+    <h2>3. Sincronizzazione cloud e servizi di terze parti</h2>
+    <p>Se crei un account (email/password o Google Sign-In), i seguenti dati vengono sincronizzati su <strong>Google Firebase</strong>:</p>
+    <ul>
+      <li>Metadati dei ricordi (titolo, descrizione, umore, etichette &mdash; <strong>non le foto</strong>)</li>
+      <li>Progressi di gioco (monete, traguardi, stato negozio)</li>
+      <li>Progresso sfide giornaliere</li>
+      <li>Preferenze notifiche</li>
+    </ul>
+    <p>Servizi Firebase utilizzati:</p>
+    <ul>
+      <li><strong>Firebase Authentication</strong> &mdash; per la gestione degli account</li>
+      <li><strong>Cloud Firestore</strong> &mdash; per l'archiviazione dei metadati</li>
+    </ul>
+    <p>L'informativa sulla privacy di Google si applica ai servizi Firebase: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+
+    <h3>Modalit&agrave; ospite</h3>
+    <p>Puoi usare l'app senza creare un account. In modalit&agrave; ospite, tutti i dati sono conservati solo localmente sul tuo dispositivo. Una sessione anonima Firebase viene creata per motivi tecnici ma non raccoglie informazioni personali.</p>
+
+    <h2>4. Condivisione dei dati</h2>
+    <p><strong>Non</strong> condividiamo, vendiamo o cediamo i tuoi dati personali a terze parti. I tuoi dati vengono elaborati solo attraverso Google Firebase come descritto sopra.</p>
+
+    <h2>5. Conservazione dei dati</h2>
+    <ul>
+      <li><strong>Dati locali:</strong> Conservati fino alla cancellazione del ricordo, disinstallazione dell'app o pulizia dei dati dell'app.</li>
+      <li><strong>Dati cloud:</strong> Conservati fino all'eliminazione dell'account. L'eliminazione dell'account rimuove tutti i dati associati da Firebase.</li>
+      <li><strong>Feedback:</strong> Conservati per migliorare l'app e possono essere eliminati periodicamente.</li>
+    </ul>
+
+    <h2>6. I tuoi diritti</h2>
+    <p>Hai il diritto di:</p>
+    <ul>
+      <li><strong>Accedere</strong> ai tuoi dati &mdash; tutti i tuoi dati sono visibili all'interno dell'app</li>
+      <li><strong>Cancellare</strong> i tuoi dati &mdash; usa "Elimina account" nelle Impostazioni per rimuovere permanentemente tutti i dati dal cloud</li>
+      <li><strong>Rettificare</strong> i tuoi dati &mdash; modifica o elimina qualsiasi ricordo in qualsiasi momento</li>
+      <li><strong>Revocare il consenso</strong> &mdash; disconnettiti per interrompere la sincronizzazione cloud; disinstalla per rimuovere tutti i dati locali</li>
+    </ul>
+    <p>In base al GDPR (utenti UE) e al CCPA (utenti California), hai diritti aggiuntivi tra cui la portabilit&agrave; dei dati e il diritto di opposizione al trattamento. Contattaci per esercitare questi diritti.</p>
+
+    <h2>7. Sicurezza dei dati</h2>
+    <ul>
+      <li>Tutti i dati in transito sono crittografati tramite HTTPS (garantito da Firebase)</li>
+      <li>I dati cloud sono conservati sull'infrastruttura Google con sicurezza di livello industriale</li>
+      <li>I backup dell'app su Google Cloud sono disabilitati per prevenire esposizioni involontarie</li>
+      <li>Le build di rilascio utilizzano l'offuscamento del codice per proteggere dal reverse engineering</li>
+    </ul>
+
+    <h2>8. Privacy dei minori</h2>
+    <p>MyDailyMemory non &egrave; destinata a minori di 13 anni. Non raccogliamo consapevolmente informazioni personali da minori di 13 anni. Se ritieni che un minore ci abbia fornito dati personali, contattaci e li elimineremo tempestivamente.</p>
+
+    <h2>9. Permessi utilizzati</h2>
+    <table>
+      <tr><th>Permesso</th><th>Motivo</th></tr>
+      <tr><td>Fotocamera</td><td>Scattare foto per i tuoi ricordi (opzionale)</td></tr>
+      <tr><td>Libreria foto</td><td>Selezionare foto esistenti per i tuoi ricordi</td></tr>
+      <tr><td>Notifiche</td><td>Inviare promemoria giornalieri all'orario preferito</td></tr>
+      <tr><td>Vibrazione</td><td>Feedback aptico sulle interazioni</td></tr>
+    </table>
+    <p>Tutti i permessi sono opzionali. L'app funziona anche senza concederli, con funzionalit&agrave; ridotte.</p>
+
+    <h2>10. Modifiche a questa informativa</h2>
+    <p>Potremmo aggiornare questa Informativa sulla Privacy di tanto in tanto. La data di "Ultimo aggiornamento" in alto riflettera la revisione pi&ugrave; recente. L'uso continuato dell'app dopo le modifiche costituisce accettazione dell'informativa aggiornata.</p>
+
+    <h2>11. Contattaci</h2>
+    <p>Per qualsiasi domanda sulla privacy, richieste sui dati o preoccupazioni:</p>
+    <p><strong>Email:</strong> privacy@mydailymemory.app</p>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  &copy; 2026 MyDailyMemory. All rights reserved.
+</div>
+
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-switch button').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.getElementById('btn-' + lang).classList.add('active');
+    document.documentElement.lang = lang;
+  }
+</script>
+
+</body>
+</html>
