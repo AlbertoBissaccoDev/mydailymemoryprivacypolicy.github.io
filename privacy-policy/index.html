@@ -122,7 +122,7 @@
   <!-- ==================== ENGLISH ==================== -->
   <div id="lang-en" class="lang-section active">
 
-    <p><strong>Last updated:</strong> March 19, 2026</p>
+    <p><strong>Last updated:</strong> April 5, 2026</p>
     <p>MyDailyMemory ("we", "our", "the app") is a personal memory journal application. We are committed to protecting your privacy and being transparent about the data we collect.</p>
 
     <h2>1. Data We Collect</h2>
@@ -149,66 +149,157 @@
     <div class="highlight">
       <ul>
         <li>We do <strong>not</strong> collect your location</li>
-        <li>We do <strong>not</strong> collect device identifiers or advertising IDs</li>
         <li>We do <strong>not</strong> use analytics, crash reporting, or tracking SDKs</li>
-        <li>We do <strong>not</strong> serve ads</li>
         <li>We do <strong>not</strong> sell your data to third parties</li>
       </ul>
     </div>
 
-    <h2>2. How Your Photos Are Stored</h2>
+    <h3>1.4 Advertising (free users only)</h3>
+    <p>MyDailyMemory displays <strong>rewarded and interstitial ads</strong> to non-premium users via <strong>Google AdMob</strong> (Google Mobile Ads SDK). Premium subscribers do not see any ads.</p>
+    <p>Google AdMob may collect:</p>
+    <ul>
+      <li>Device advertising identifier (IDFA on iOS, Advertising ID on Android)</li>
+      <li>IP address</li>
+      <li>General device information (model, OS version)</li>
+    </ul>
+    <p>This data is collected and processed by Google, not by us. We do not have access to it. For details on how Google uses this data, see: <a href="https://policies.google.com/technologies/ads" target="_blank">Google Ads Privacy</a></p>
+    <p><strong>To stop ad-related data collection:</strong> Subscribe to Premium, or adjust your device's ad personalization settings (iOS: Settings &gt; Privacy &gt; Tracking; Android: Settings &gt; Google &gt; Ads).</p>
+
+    <h2>2. How Your Data Is Protected (Optional E2E Encryption)</h2>
+    <p>MyDailyMemory <strong>offers optional end-to-end encryption with a user-chosen backup password</strong>. This is your choice:</p>
+    <ul>
+      <li><strong>If you enable encryption:</strong> Your data is encrypted on your device before reaching our servers. The developer cannot read it—zero-knowledge storage.</li>
+      <li><strong>If you skip encryption:</strong> Your data is stored in plain text on Firebase. The developer can read it if needed (e.g., for support or account recovery).</li>
+    </ul>
+
+    <h3>2.1 Encryption details</h3>
+    <ul>
+      <li><strong>Algorithm:</strong> AES-256-CBC (military-grade encryption)</li>
+      <li><strong>Key derivation:</strong> PBKDF2 with 100,000 iterations (resists brute-force attacks)</li>
+      <li><strong>What is encrypted:</strong> Photos, memory titles, descriptions, mood, birthday</li>
+      <li><strong>What is NOT encrypted:</strong> Coins, achievements, shop items (gameplay data, not personal)</li>
+      <li><strong>Key location:</strong> Derived from your passphrase on your device; never leaves your phone or uploaded to any server</li>
+    </ul>
+
+    <h3>2.2 How it works (if you enable it)</h3>
     <div class="highlight">
-      <p><strong>Your photos never leave your device.</strong> They are stored only in the app's private directory on your phone. Only the text metadata (title, description, mood) is synced to the cloud if you create an account. Photos are not uploaded, shared, or accessible to anyone else.</p>
+      <p><strong>On first login:</strong> You can optionally set a backup password. If you do, the app derives an encryption key from it using PBKDF2. All sensitive data is then encrypted with this key before being sent to the cloud.</p>
+      <p><strong>On new device:</strong> You enter the same backup password, the key is re-derived, and all encrypted data becomes readable only to you.</p>
+      <p><strong>⚠️ If you forget your password:</strong> Your cloud data cannot be recovered—no one, not even us, has the ability to decrypt it. You will have lost access to all encrypted memories permanently. <strong>Write down your password somewhere safe.</strong></p>
+      <p><strong>If you choose NOT to enable encryption:</strong> You can skip this step and continue using the app. Your data will be stored in plain text and accessible to the developer for support purposes.</p>
     </div>
 
     <h2>3. Cloud Sync &amp; Third-Party Services</h2>
     <p>If you create an account (email/password or Google Sign-In), the following data is synced to <strong>Google Firebase</strong>:</p>
+
+    <h3>3.1 If you enabled encryption (with backup password):</h3>
     <ul>
-      <li>Memory metadata (title, description, mood, labels &mdash; <strong>not photos</strong>)</li>
-      <li>In-game progress (coins, achievements, shop state)</li>
-      <li>Daily challenge progress</li>
+      <li><strong>Memory data (encrypted):</strong> Photos, titles, descriptions, mood, labels</li>
+      <li><strong>Birthday (encrypted):</strong> Stored only as an encrypted blob</li>
+      <li><strong>In-game progress (NOT encrypted):</strong> Coins, achievements, shop state, daily challenge progress</li>
       <li>Notification preferences</li>
     </ul>
+    <p><strong>What Firebase sees:</strong> Only gibberish for sensitive data. The encrypted content is meaningless to Google, Firebase admins, or anyone without your passphrase.</p>
+
+    <h3>3.2 If you did NOT enable encryption (skipped the password setup):</h3>
+    <ul>
+      <li><strong>Memory data (plain text):</strong> Photos, titles, descriptions, mood, labels</li>
+      <li><strong>Birthday (plain text):</strong> Readable on Firebase</li>
+      <li><strong>In-game progress (not encrypted):</strong> Coins, achievements, shop state, daily challenge progress</li>
+      <li>Notification preferences</li>
+    </ul>
+    <p><strong>What Firebase sees:</strong> All your personal data in readable form. The app developer can access and read it if needed.</p>
     <p>Firebase services used:</p>
     <ul>
       <li><strong>Firebase Authentication</strong> &mdash; for account management</li>
-      <li><strong>Cloud Firestore</strong> &mdash; for storing metadata</li>
+      <li><strong>Cloud Firestore</strong> &mdash; for storing metadata and settings</li>
+      <li><strong>Firebase Storage</strong> &mdash; for storing photos (encrypted or unencrypted depending on your choice)</li>
     </ul>
     <p>Google's privacy policy applies to Firebase services: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
 
+    <h3>3.3 International data transfers (EU users)</h3>
+    <p>Firebase is operated by Google LLC, based in the United States. Your data may be transferred to and stored on servers located outside the European Economic Area (EEA). These transfers are governed by <strong>Standard Contractual Clauses (SCCs)</strong> as approved by the European Commission. If you enable E2E encryption, your data is encrypted before transfer, so Google cannot access its contents regardless of server location.</p>
+    <p>For more information on Google's data transfer mechanisms, see: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+
     <h3>Guest mode</h3>
-    <p>You can use the app without creating an account. In guest mode, all data is stored locally on your device only. An anonymous Firebase session is created for technical purposes but does not collect personal information.</p>
+    <p>You can use the app without creating an account. In guest mode, an anonymous Firebase session is created with a random identifier. Your data (memories, photos, settings) is synced to Firebase under this anonymous identifier. You are offered the option to set a backup password to encrypt your data, even in guest mode. If you do not create an account, your data cannot be recovered on a different device.</p>
+
+    <h3>3.4 Legal basis for processing (GDPR Article 6)</h3>
+    <table>
+      <tr><th>Processing activity</th><th>Legal basis</th></tr>
+      <tr><td>Account creation and authentication</td><td>Contract performance (necessary to provide the service)</td></tr>
+      <tr><td>Cloud sync of memories, photos, settings</td><td>Consent (you choose to create an account and sync)</td></tr>
+      <tr><td>Feedback collection (with userId/email)</td><td>Legitimate interest (to improve the app and respond to users)</td></tr>
+      <tr><td>Anonymization of feedback on account deletion</td><td>Legal obligation (GDPR right to erasure)</td></tr>
+      <tr><td>In-game progress storage</td><td>Contract performance (core app functionality)</td></tr>
+    </table>
 
     <h2>4. Data Sharing</h2>
-    <p>We do <strong>not</strong> share, sell, or rent your personal data to any third party. Your data is only processed through Google Firebase as described above.</p>
+    <p>We do <strong>not</strong> share, sell, or rent your personal data to any third party. Your data is only stored through Google Firebase as described above.</p>
+    <p><strong>Developer access depends on your encryption choice:</strong></p>
+    <ul>
+      <li><strong>With encryption enabled:</strong> Even the developer cannot read your sensitive data. Google stores only ciphertext, which is meaningless without your passphrase.</li>
+      <li><strong>Without encryption:</strong> The developer can access your data on Firebase if needed (e.g., for account recovery, support requests, or policy enforcement).</li>
+    </ul>
+    <p><strong>Feedback:</strong> Feedback messages include your user ID and email address so the developer can follow up with you if needed. When you delete your account, all feedback is anonymized (user ID and email are removed).</p>
 
     <h2>5. Data Retention</h2>
-    <ul>
-      <li><strong>Local data:</strong> Stored until you delete the memory, uninstall the app, or clear app data.</li>
-      <li><strong>Cloud data:</strong> Stored until you delete your account. Account deletion removes all associated data from Firebase.</li>
-      <li><strong>Feedback:</strong> Retained for the purpose of improving the app and may be deleted periodically.</li>
-    </ul>
+    <table>
+      <tr><th>Data type</th><th>Retention period</th><th>Deletion method</th></tr>
+      <tr><td>Memories and photos (cloud)</td><td>Until you delete them or delete your account</td><td>Immediate deletion from Firestore and Firebase Storage</td></tr>
+      <tr><td>Memories and photos (local)</td><td>Until you delete them, uninstall the app, or clear app data</td><td>Removed from device storage</td></tr>
+      <tr><td>Account data (email, UID)</td><td>Until you delete your account</td><td>Immediate deletion from Firebase Authentication</td></tr>
+      <tr><td>In-game progress</td><td>Until you delete your account</td><td>Immediate deletion from Firestore</td></tr>
+      <tr><td>Feedback (with user ID)</td><td>Retained indefinitely for product improvement; anonymized immediately on account deletion</td><td>User ID and email set to null; message content retained</td></tr>
+      <tr><td>Encryption metadata (salt, token)</td><td>Until you delete your account</td><td>Deleted with account data</td></tr>
+    </table>
+    <p>When you delete your account, all associated data is permanently removed from our servers <strong>immediately</strong>. This includes all Firestore documents, all photos in Firebase Storage, and the Firebase Authentication record. This action is irreversible.</p>
 
     <h2>6. Your Rights</h2>
     <p>You have the right to:</p>
     <ul>
-      <li><strong>Access</strong> your data &mdash; all your data is visible within the app</li>
-      <li><strong>Delete</strong> your data &mdash; use "Delete account" in Settings to permanently remove all cloud data</li>
+      <li><strong>Access</strong> your data &mdash; all your data is visible within the app; you can also export all your data via the "Export my data (GDPR)" button in Settings</li>
+      <li><strong>Delete</strong> your data &mdash; use "Delete account" in Settings to permanently remove all cloud data (Firestore, Storage, Authentication)</li>
       <li><strong>Rectify</strong> your data &mdash; edit or delete any memory at any time</li>
+      <li><strong>Data portability</strong> &mdash; export your data in a standard format via the in-app export feature</li>
       <li><strong>Withdraw consent</strong> &mdash; sign out to stop cloud sync; uninstall to remove all local data</li>
+      <li><strong>Object to processing</strong> &mdash; contact us to object to specific processing activities</li>
     </ul>
-    <p>Under GDPR (EU users) and CCPA (California users), you have additional rights including data portability and the right to object to processing. Contact us to exercise these rights.</p>
+
+    <h3>6.1 For EU users (GDPR)</h3>
+    <p>Under the General Data Protection Regulation (EU) 2016/679, you have the right to lodge a complaint with your national data protection supervisory authority if you believe your data has been processed unlawfully.</p>
+    <ul>
+      <li><strong>Italy:</strong> Garante per la Protezione dei Dati Personali &mdash; <a href="https://www.gpdp.it" target="_blank">www.gpdp.it</a></li>
+    </ul>
+    <p>For a list of all EU supervisory authorities, visit: <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank">European Data Protection Board</a></p>
+
+    <h3>6.2 For California users (CCPA)</h3>
+    <p>Under the California Consumer Privacy Act, you have the right to know what personal information is collected, request deletion, and opt out of the "sale" of personal information. <strong>We do not sell your personal information.</strong> To exercise your rights, contact us at the email below.</p>
 
     <h2>7. Data Security</h2>
+    <p><strong>At-rest encryption (zero-knowledge):</strong></p>
     <ul>
-      <li>All data in transit is encrypted via HTTPS (enforced by Firebase)</li>
+      <li>Sensitive data (photos, titles, descriptions, mood, birthday) is encrypted on your device using AES-256-CBC before leaving your phone</li>
+      <li>The encryption key is derived from your backup passphrase using PBKDF2 with 100,000 iterations, making brute-force attacks computationally infeasible</li>
+      <li>The key never leaves your device and is never sent to any server</li>
+      <li>Even if someone gained access to Firebase, they would only see encrypted blobs with no way to decrypt them without your passphrase</li>
+    </ul>
+    <p><strong>In-transit encryption:</strong></p>
+    <ul>
+      <li>All communication with Firebase is encrypted via HTTPS (TLS 1.2+, enforced by Google)</li>
+    </ul>
+    <p><strong>Additional security measures:</strong></p>
+    <ul>
       <li>Cloud data is stored on Google's infrastructure with industry-standard security</li>
       <li>App backups to Google Cloud are disabled to prevent unintended data exposure</li>
       <li>Release builds use code obfuscation to protect against reverse engineering</li>
+      <li>Firebase security rules prevent unauthorized access to user data</li>
     </ul>
 
     <h2>8. Children's Privacy</h2>
-    <p>MyDailyMemory is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
+    <p><strong>Outside the EU:</strong> MyDailyMemory is not directed at children under 13. We do not knowingly collect personal information from children under 13.</p>
+    <p><strong>In the European Union:</strong> MyDailyMemory is not directed at children under 16 (or the age of digital consent in your country, if lower, as permitted by GDPR Article 8). The app requires users to confirm they are at least 13 years old during account creation.</p>
+    <p>If you are a parent or guardian and believe your child has provided us with personal data, please contact us and we will delete it promptly.</p>
 
     <h2>9. Permissions Used</h2>
     <table>
@@ -220,19 +311,29 @@
     </table>
     <p>All permissions are optional. The app works without granting them, with reduced functionality.</p>
 
-    <h2>10. Changes to This Policy</h2>
+    <h2>10. Cookies and Tracking Technologies</h2>
+    <p>MyDailyMemory is a mobile application and does <strong>not</strong> use HTTP cookies. We use the following local storage mechanisms:</p>
+    <ul>
+      <li><strong>SharedPreferences:</strong> Local key-value storage for app settings, game progress, and user preferences. This data stays on your device.</li>
+      <li><strong>Flutter Secure Storage:</strong> Encrypted local storage for the encryption key derived from your passphrase. This data stays on your device.</li>
+      <li><strong>Firebase services:</strong> Cloud storage as described in Section 3. Firebase may use its own internal mechanisms for session management.</li>
+    </ul>
+    <p>We do <strong>not</strong> use any third-party analytics, tracking, behavioral profiling, or advertising SDKs.</p>
+
+    <h2>11. Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top will reflect the most recent revision. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
 
-    <h2>11. Contact Us</h2>
-    <p>For any privacy-related questions, data requests, or concerns:</p>
+    <h2>12. Data Controller &amp; Contact</h2>
+    <p><strong>Data Controller:</strong> Alberto Bissacco (independent developer)</p>
     <p><strong>Email:</strong> privacy@mydailymemory.app</p>
+    <p>For any privacy-related questions, data access requests, deletion requests, or concerns, please contact us at the email above. We will respond within 30 days as required by GDPR.</p>
 
   </div>
 
   <!-- ==================== ITALIANO ==================== -->
   <div id="lang-it" class="lang-section">
 
-    <p><strong>Ultimo aggiornamento:</strong> 19 marzo 2026</p>
+    <p><strong>Ultimo aggiornamento:</strong> 5 aprile 2026</p>
     <p>MyDailyMemory ("noi", "l'app") &egrave; un'applicazione di diario visivo personale. Ci impegniamo a proteggere la tua privacy e ad essere trasparenti sui dati che raccogliamo.</p>
 
     <h2>1. Dati che raccogliamo</h2>
@@ -259,66 +360,157 @@
     <div class="highlight">
       <ul>
         <li><strong>Non</strong> raccogliamo la tua posizione</li>
-        <li><strong>Non</strong> raccogliamo identificatori del dispositivo o ID pubblicitari</li>
         <li><strong>Non</strong> utilizziamo SDK di analytics, crash reporting o tracciamento</li>
-        <li><strong>Non</strong> mostriamo pubblicit&agrave;</li>
         <li><strong>Non</strong> vendiamo i tuoi dati a terze parti</li>
       </ul>
     </div>
 
-    <h2>2. Come vengono conservate le tue foto</h2>
+    <h3>1.4 Pubblicit&agrave; (solo utenti gratuiti)</h3>
+    <p>MyDailyMemory mostra <strong>annunci premiati e interstiziali</strong> agli utenti non premium tramite <strong>Google AdMob</strong> (Google Mobile Ads SDK). Gli abbonati Premium non vedono alcun annuncio.</p>
+    <p>Google AdMob pu&ograve; raccogliere:</p>
+    <ul>
+      <li>Identificatore pubblicitario del dispositivo (IDFA su iOS, Advertising ID su Android)</li>
+      <li>Indirizzo IP</li>
+      <li>Informazioni generali sul dispositivo (modello, versione del sistema operativo)</li>
+    </ul>
+    <p>Questi dati vengono raccolti e trattati da Google, non da noi. Non abbiamo accesso a questi dati. Per informazioni su come Google utilizza questi dati, vedi: <a href="https://policies.google.com/technologies/ads" target="_blank">Google Ads Privacy</a></p>
+    <p><strong>Per interrompere la raccolta dati legata alla pubblicit&agrave;:</strong> Abbonati a Premium, oppure modifica le impostazioni di personalizzazione degli annunci del tuo dispositivo (iOS: Impostazioni &gt; Privacy &gt; Tracciamento; Android: Impostazioni &gt; Google &gt; Annunci).</p>
+
+    <h2>2. Come vengono protetti i tuoi dati (E2E Encryption opzionale)</h2>
+    <p>MyDailyMemory <strong>offre crittografia end-to-end opzionale con una password di backup scelta da te</strong>. Questa è una tua scelta:</p>
+    <ul>
+      <li><strong>Se abiliti la crittografia:</strong> I tuoi dati vengono crittografati sul tuo dispositivo prima di raggiungere i nostri server. Lo sviluppatore non può leggerli—archiviazione a conoscenza zero.</li>
+      <li><strong>Se salti la crittografia:</strong> I tuoi dati vengono archiviati in testo semplice su Firebase. Lo sviluppatore può leggerli se necessario (ad es. per supporto o recupero account).</li>
+    </ul>
+
+    <h3>2.1 Dettagli della crittografia</h3>
+    <ul>
+      <li><strong>Algoritmo:</strong> AES-256-CBC (crittografia di livello militare)</li>
+      <li><strong>Derivazione della chiave:</strong> PBKDF2 con 100.000 iterazioni (resiste agli attacchi brute-force)</li>
+      <li><strong>Cosa viene cifrato:</strong> Foto, titoli dei ricordi, descrizioni, umore, data di nascita</li>
+      <li><strong>Cosa NON viene cifrato:</strong> Monete, traguardi, articoli del negozio (dati di gameplay, non personali)</li>
+      <li><strong>Posizione della chiave:</strong> Derivata dalla tua password sul tuo dispositivo; non lascia mai il tuo telefono e non viene mai caricata su alcun server</li>
+    </ul>
+
+    <h3>2.2 Come funziona (se la abiliti)</h3>
     <div class="highlight">
-      <p><strong>Le tue foto non lasciano mai il tuo dispositivo.</strong> Sono conservate solo nella directory privata dell'app sul tuo telefono. Solo i metadati testuali (titolo, descrizione, umore) vengono sincronizzati nel cloud se crei un account. Le foto non vengono caricate, condivise o rese accessibili a nessun altro.</p>
+      <p><strong>Al primo accesso:</strong> Puoi facoltativamente impostare una password di backup. Se lo fai, l'app deriva una chiave di crittografia da essa utilizzando PBKDF2. Tutti i dati sensibili vengono quindi crittografati con questa chiave prima di essere inviati al cloud.</p>
+      <p><strong>Su un nuovo dispositivo:</strong> Inserisci la stessa password di backup, la chiave viene ri-derivata e tutti i dati crittografati diventano leggibili solo per te.</p>
+      <p><strong>⚠️ Se dimentichi la tua password:</strong> I tuoi dati nel cloud non possono essere recuperati—nessuno, nemmeno noi, ha la capacità di decifrarli. Perderai l'accesso a tutti i ricordi crittografati in modo permanente. <strong>Scrivi la tua password da qualche parte al sicuro.</strong></p>
+      <p><strong>Se scegli di NON abilitare la crittografia:</strong> Puoi saltare questo passaggio e continuare a usare l'app. I tuoi dati verranno archiviati in testo semplice e accessibili allo sviluppatore per scopi di supporto.</p>
     </div>
 
     <h2>3. Sincronizzazione cloud e servizi di terze parti</h2>
     <p>Se crei un account (email/password o Google Sign-In), i seguenti dati vengono sincronizzati su <strong>Google Firebase</strong>:</p>
+
+    <h3>3.1 Se hai abilitato la crittografia (con password di backup):</h3>
     <ul>
-      <li>Metadati dei ricordi (titolo, descrizione, umore, etichette &mdash; <strong>non le foto</strong>)</li>
-      <li>Progressi di gioco (monete, traguardi, stato negozio)</li>
-      <li>Progresso sfide giornaliere</li>
+      <li><strong>Dati dei ricordi (crittografati):</strong> Foto, titoli, descrizioni, umore, etichette</li>
+      <li><strong>Data di nascita (crittografata):</strong> Salvata solo come blob crittografato</li>
+      <li><strong>Progressi di gioco (NON crittografati):</strong> Monete, traguardi, stato negozio, progresso sfide giornaliere</li>
       <li>Preferenze notifiche</li>
     </ul>
+    <p><strong>Cosa vede Firebase:</strong> Solo dati incomprensibili per i dati sensibili. I dati crittografati sono privi di significato per Google, gli amministratori di Firebase o chiunque non abbia la tua password di backup.</p>
+
+    <h3>3.2 Se NON hai abilitato la crittografia (hai saltato l'impostazione della password):</h3>
+    <ul>
+      <li><strong>Dati dei ricordi (testo semplice):</strong> Foto, titoli, descrizioni, umore, etichette</li>
+      <li><strong>Data di nascita (testo semplice):</strong> Leggibile su Firebase</li>
+      <li><strong>Progressi di gioco (non crittografati):</strong> Monete, traguardi, stato negozio, progresso sfide giornaliere</li>
+      <li>Preferenze notifiche</li>
+    </ul>
+    <p><strong>Cosa vede Firebase:</strong> Tutti i tuoi dati personali in forma leggibile. Lo sviluppatore dell'app può accedervi e leggerli se necessario.</p>
     <p>Servizi Firebase utilizzati:</p>
     <ul>
       <li><strong>Firebase Authentication</strong> &mdash; per la gestione degli account</li>
-      <li><strong>Cloud Firestore</strong> &mdash; per l'archiviazione dei metadati</li>
+      <li><strong>Cloud Firestore</strong> &mdash; per l'archiviazione dei metadati e delle impostazioni</li>
+      <li><strong>Firebase Storage</strong> &mdash; per l'archiviazione delle foto (crittografate o non crittografate in base alla tua scelta)</li>
     </ul>
     <p>L'informativa sulla privacy di Google si applica ai servizi Firebase: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
 
+    <h3>3.3 Trasferimenti internazionali di dati (utenti UE)</h3>
+    <p>Firebase &egrave; gestito da Google LLC, con sede negli Stati Uniti. I tuoi dati potrebbero essere trasferiti e archiviati su server al di fuori dello Spazio Economico Europeo (SEE). Questi trasferimenti sono regolati dalle <strong>Clausole Contrattuali Standard (SCC)</strong> approvate dalla Commissione Europea. Se abiliti la crittografia E2E, i tuoi dati vengono crittografati prima del trasferimento, quindi Google non pu&ograve; accedere al loro contenuto indipendentemente dalla posizione del server.</p>
+    <p>Per ulteriori informazioni sui meccanismi di trasferimento dati di Google, vedi: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+
     <h3>Modalit&agrave; ospite</h3>
-    <p>Puoi usare l'app senza creare un account. In modalit&agrave; ospite, tutti i dati sono conservati solo localmente sul tuo dispositivo. Una sessione anonima Firebase viene creata per motivi tecnici ma non raccoglie informazioni personali.</p>
+    <p>Puoi usare l'app senza creare un account. In modalit&agrave; ospite, viene creata una sessione anonima Firebase con un identificatore casuale. I tuoi dati (ricordi, foto, impostazioni) vengono sincronizzati su Firebase sotto questo identificatore anonimo. Ti viene offerta l'opzione di impostare una password di backup per crittografare i tuoi dati, anche in modalit&agrave; ospite. Se non crei un account, i tuoi dati non possono essere recuperati su un dispositivo diverso.</p>
+
+    <h3>3.4 Base giuridica del trattamento (GDPR Articolo 6)</h3>
+    <table>
+      <tr><th>Attivit&agrave; di trattamento</th><th>Base giuridica</th></tr>
+      <tr><td>Creazione account e autenticazione</td><td>Esecuzione del contratto (necessario per fornire il servizio)</td></tr>
+      <tr><td>Sincronizzazione cloud di ricordi, foto, impostazioni</td><td>Consenso (scegli tu di creare un account e sincronizzare)</td></tr>
+      <tr><td>Raccolta feedback (con userId/email)</td><td>Interesse legittimo (per migliorare l'app e rispondere agli utenti)</td></tr>
+      <tr><td>Anonimizzazione feedback su eliminazione account</td><td>Obbligo legale (GDPR diritto alla cancellazione)</td></tr>
+      <tr><td>Archiviazione progressi di gioco</td><td>Esecuzione del contratto (funzionalit&agrave; core dell'app)</td></tr>
+    </table>
 
     <h2>4. Condivisione dei dati</h2>
-    <p><strong>Non</strong> condividiamo, vendiamo o cediamo i tuoi dati personali a terze parti. I tuoi dati vengono elaborati solo attraverso Google Firebase come descritto sopra.</p>
+    <p><strong>Non</strong> condividiamo, vendiamo o cediamo i tuoi dati personali a terze parti. I tuoi dati vengono archiviati solo attraverso Google Firebase come descritto sopra.</p>
+    <p><strong>L'accesso dello sviluppatore dipende dalla tua scelta di crittografia:</strong></p>
+    <ul>
+      <li><strong>Con crittografia abilitata:</strong> Nemmeno lo sviluppatore può leggere i tuoi dati sensibili. Google archivia solo testo cifrato, che è privo di significato senza la tua password di backup.</li>
+      <li><strong>Senza crittografia:</strong> Lo sviluppatore può accedere ai tuoi dati su Firebase se necessario (ad es. per il recupero account, richieste di supporto o applicazione delle politiche).</li>
+    </ul>
+    <p><strong>Feedback:</strong> I messaggi di feedback includono il tuo ID utente e indirizzo email così che lo sviluppatore possa ricontattarti se necessario. Quando elimini il tuo account, tutti i feedback vengono anonimizzati (ID utente e email vengono rimossi).</p>
 
     <h2>5. Conservazione dei dati</h2>
-    <ul>
-      <li><strong>Dati locali:</strong> Conservati fino alla cancellazione del ricordo, disinstallazione dell'app o pulizia dei dati dell'app.</li>
-      <li><strong>Dati cloud:</strong> Conservati fino all'eliminazione dell'account. L'eliminazione dell'account rimuove tutti i dati associati da Firebase.</li>
-      <li><strong>Feedback:</strong> Conservati per migliorare l'app e possono essere eliminati periodicamente.</li>
-    </ul>
+    <table>
+      <tr><th>Tipo di dato</th><th>Periodo di conservazione</th><th>Metodo di cancellazione</th></tr>
+      <tr><td>Ricordi e foto (cloud)</td><td>Fino alla cancellazione o eliminazione dell'account</td><td>Cancellazione immediata da Firestore e Firebase Storage</td></tr>
+      <tr><td>Ricordi e foto (locale)</td><td>Fino alla cancellazione, disinstallazione o pulizia dati dell'app</td><td>Rimossi dall'archivio del dispositivo</td></tr>
+      <tr><td>Dati account (email, UID)</td><td>Fino all'eliminazione dell'account</td><td>Cancellazione immediata da Firebase Authentication</td></tr>
+      <tr><td>Progressi di gioco</td><td>Fino all'eliminazione dell'account</td><td>Cancellazione immediata da Firestore</td></tr>
+      <tr><td>Feedback (con ID utente)</td><td>Conservati a tempo indeterminato; anonimizzati immediatamente all'eliminazione dell'account</td><td>ID utente e email impostati a null; contenuto del messaggio conservato</td></tr>
+      <tr><td>Metadati crittografia (salt, token)</td><td>Fino all'eliminazione dell'account</td><td>Eliminati con i dati dell'account</td></tr>
+    </table>
+    <p>Quando elimini il tuo account, tutti i dati associati vengono rimossi permanentemente dai nostri server <strong>immediatamente</strong>. Questo include tutti i documenti Firestore, tutte le foto in Firebase Storage e il record di Firebase Authentication. Questa azione &egrave; irreversibile.</p>
 
     <h2>6. I tuoi diritti</h2>
     <p>Hai il diritto di:</p>
     <ul>
-      <li><strong>Accedere</strong> ai tuoi dati &mdash; tutti i tuoi dati sono visibili all'interno dell'app</li>
-      <li><strong>Cancellare</strong> i tuoi dati &mdash; usa "Elimina account" nelle Impostazioni per rimuovere permanentemente tutti i dati dal cloud</li>
+      <li><strong>Accedere</strong> ai tuoi dati &mdash; tutti i tuoi dati sono visibili nell'app; puoi anche esportare tutti i tuoi dati tramite il pulsante "Esporta i miei dati (GDPR)" nelle Impostazioni</li>
+      <li><strong>Cancellare</strong> i tuoi dati &mdash; usa "Elimina account" nelle Impostazioni per rimuovere permanentemente tutti i dati dal cloud (Firestore, Storage, Authentication)</li>
       <li><strong>Rettificare</strong> i tuoi dati &mdash; modifica o elimina qualsiasi ricordo in qualsiasi momento</li>
+      <li><strong>Portabilit&agrave; dei dati</strong> &mdash; esporta i tuoi dati in un formato standard tramite la funzione di esportazione nell'app</li>
       <li><strong>Revocare il consenso</strong> &mdash; disconnettiti per interrompere la sincronizzazione cloud; disinstalla per rimuovere tutti i dati locali</li>
+      <li><strong>Opporti al trattamento</strong> &mdash; contattaci per opporti ad attivit&agrave; di trattamento specifiche</li>
     </ul>
-    <p>In base al GDPR (utenti UE) e al CCPA (utenti California), hai diritti aggiuntivi tra cui la portabilit&agrave; dei dati e il diritto di opposizione al trattamento. Contattaci per esercitare questi diritti.</p>
+
+    <h3>6.1 Per utenti UE (GDPR)</h3>
+    <p>In base al Regolamento Generale sulla Protezione dei Dati (UE) 2016/679, hai il diritto di presentare un reclamo alla tua autorit&agrave; nazionale di controllo della protezione dei dati se ritieni che i tuoi dati siano stati trattati illecitamente.</p>
+    <ul>
+      <li><strong>Italia:</strong> Garante per la Protezione dei Dati Personali &mdash; <a href="https://www.gpdp.it" target="_blank">www.gpdp.it</a></li>
+    </ul>
+    <p>Per un elenco di tutte le autorit&agrave; di controllo UE, visita: <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank">European Data Protection Board</a></p>
+
+    <h3>6.2 Per utenti California (CCPA)</h3>
+    <p>In base al California Consumer Privacy Act, hai il diritto di sapere quali informazioni personali vengono raccolte, richiedere la cancellazione e rinunciare alla "vendita" delle informazioni personali. <strong>Non vendiamo le tue informazioni personali.</strong> Per esercitare i tuoi diritti, contattaci all'email indicata sotto.</p>
 
     <h2>7. Sicurezza dei dati</h2>
+    <p><strong>Crittografia a riposo (conoscenza zero):</strong></p>
     <ul>
-      <li>Tutti i dati in transito sono crittografati tramite HTTPS (garantito da Firebase)</li>
+      <li>I dati sensibili (foto, titoli, descrizioni, umore, data di nascita) vengono crittografati sul tuo dispositivo utilizzando AES-256-CBC prima di lasciare il tuo telefono</li>
+      <li>La chiave di crittografia viene derivata dalla tua password di backup utilizzando PBKDF2 con 100.000 iterazioni, rendendo gli attacchi brute-force computazionalmente non fattibili</li>
+      <li>La chiave non lascia mai il tuo dispositivo e non viene mai inviata a alcun server</li>
+      <li>Anche se qualcuno ottenesse accesso a Firebase, vedrebbe solo blob crittografati senza alcun modo per decifrarli senza la tua password di backup</li>
+    </ul>
+    <p><strong>Crittografia in transito:</strong></p>
+    <ul>
+      <li>Tutte le comunicazioni con Firebase sono crittografate tramite HTTPS (TLS 1.2+, garantito da Google)</li>
+    </ul>
+    <p><strong>Misure di sicurezza aggiuntive:</strong></p>
+    <ul>
       <li>I dati cloud sono conservati sull'infrastruttura Google con sicurezza di livello industriale</li>
       <li>I backup dell'app su Google Cloud sono disabilitati per prevenire esposizioni involontarie</li>
       <li>Le build di rilascio utilizzano l'offuscamento del codice per proteggere dal reverse engineering</li>
+      <li>Le regole di sicurezza Firebase impediscono l'accesso non autorizzato ai dati dell'utente</li>
     </ul>
 
     <h2>8. Privacy dei minori</h2>
-    <p>MyDailyMemory non &egrave; destinata a minori di 13 anni. Non raccogliamo consapevolmente informazioni personali da minori di 13 anni. Se ritieni che un minore ci abbia fornito dati personali, contattaci e li elimineremo tempestivamente.</p>
+    <p><strong>Fuori dall'UE:</strong> MyDailyMemory non &egrave; destinata a minori di 13 anni. Non raccogliamo consapevolmente informazioni personali da minori di 13 anni.</p>
+    <p><strong>Nell'Unione Europea:</strong> MyDailyMemory non &egrave; destinata a minori di 16 anni (o l'et&agrave; del consenso digitale nel tuo Paese, se inferiore, come consentito dall'Art. 8 GDPR). L'app richiede agli utenti di confermare di avere almeno 13 anni durante la creazione dell'account.</p>
+    <p>Se sei un genitore o tutore e ritieni che tuo figlio ci abbia fornito dati personali, contattaci e li elimineremo tempestivamente.</p>
 
     <h2>9. Permessi utilizzati</h2>
     <table>
@@ -330,12 +522,22 @@
     </table>
     <p>Tutti i permessi sono opzionali. L'app funziona anche senza concederli, con funzionalit&agrave; ridotte.</p>
 
-    <h2>10. Modifiche a questa informativa</h2>
+    <h2>10. Cookie e tecnologie di tracciamento</h2>
+    <p>MyDailyMemory &egrave; un'applicazione mobile e <strong>non</strong> utilizza cookie HTTP. Utilizziamo i seguenti meccanismi di archiviazione locale:</p>
+    <ul>
+      <li><strong>SharedPreferences:</strong> Archiviazione locale chiave-valore per le impostazioni dell'app, i progressi di gioco e le preferenze utente. Questi dati restano sul tuo dispositivo.</li>
+      <li><strong>Flutter Secure Storage:</strong> Archiviazione locale crittografata per la chiave di crittografia derivata dalla tua password di backup. Questi dati restano sul tuo dispositivo.</li>
+      <li><strong>Servizi Firebase:</strong> Archiviazione cloud come descritto nella Sezione 3. Firebase pu&ograve; utilizzare i propri meccanismi interni per la gestione delle sessioni.</li>
+    </ul>
+    <p><strong>Non</strong> utilizziamo SDK di analytics, tracciamento, profilazione comportamentale o pubblicit&agrave; di terze parti.</p>
+
+    <h2>11. Modifiche a questa informativa</h2>
     <p>Potremmo aggiornare questa Informativa sulla Privacy di tanto in tanto. La data di "Ultimo aggiornamento" in alto riflettera la revisione pi&ugrave; recente. L'uso continuato dell'app dopo le modifiche costituisce accettazione dell'informativa aggiornata.</p>
 
-    <h2>11. Contattaci</h2>
-    <p>Per qualsiasi domanda sulla privacy, richieste sui dati o preoccupazioni:</p>
+    <h2>12. Titolare del trattamento e contatti</h2>
+    <p><strong>Titolare del trattamento:</strong> Alberto Bissacco (sviluppatore indipendente)</p>
     <p><strong>Email:</strong> privacy@mydailymemory.app</p>
+    <p>Per qualsiasi domanda sulla privacy, richieste di accesso ai dati, richieste di cancellazione o preoccupazioni, contattaci all'email sopra indicata. Risponderemo entro 30 giorni come richiesto dal GDPR.</p>
 
   </div>
 

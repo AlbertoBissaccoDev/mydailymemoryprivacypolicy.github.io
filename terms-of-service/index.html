@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyDailyMemory - Terms of Service</title>
+  <style>
+    :root {
+      --bg: #FDFBF7;
+      --text: #3E2723;
+      --accent: #F5A076;
+      --card: #FFFFFF;
+      --muted: #8D6E63;
+      --border: #E0D5CC;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 0;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--accent), #E8967A);
+      color: white;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .header p { font-size: 14px; opacity: 0.9; }
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .lang-switch button {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: white;
+      padding: 6px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .lang-switch button.active,
+    .lang-switch button:hover { background: rgba(255,255,255,0.4); }
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+    h2 {
+      font-size: 20px;
+      color: var(--accent);
+      margin-top: 32px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border);
+    }
+    h3 { font-size: 16px; margin-top: 20px; margin-bottom: 8px; }
+    p, li { font-size: 15px; color: var(--text); margin-bottom: 8px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 4px; }
+    .highlight {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .highlight strong { color: var(--accent); }
+    .footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    .lang-en, .lang-it { display: none; }
+    .lang-en.active, .lang-it.active { display: block; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>MyDailyMemory</h1>
+  <p class="lang-en active">Terms of Service</p>
+  <p class="lang-it">Termini di Servizio</p>
+  <div class="lang-switch">
+    <button onclick="setLang('en')" id="btn-en" class="active">English</button>
+    <button onclick="setLang('it')" id="btn-it">Italiano</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════ ENGLISH ══════════════════════════ -->
+<div class="content lang-en active">
+
+  <p><strong>Last updated:</strong> April 5, 2026</p>
+
+  <h2>1. Acceptance of Terms</h2>
+  <p>By downloading, installing, or using MyDailyMemory ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+  <p>These Terms apply to all users of the App, including anonymous (guest) users and registered account holders.</p>
+
+  <h2>2. Description of Service</h2>
+  <p>MyDailyMemory is a personal journal app that allows you to capture, store, and revisit one photo per day along with optional text notes, mood tags, and other metadata. The App offers both a local-only (guest) mode and a cloud backup mode for registered users.</p>
+
+  <h2>3. Eligibility</h2>
+  <p>You must be at least <strong>13 years old</strong> to use this App (or <strong>16 years old</strong> in EU countries where the age of digital consent is 16, as per GDPR Article 8). By using the App, you represent that you meet the applicable age requirement. If you are under 18, you represent that you have your parent or guardian's permission.</p>
+  <p>The App is not directed to children below the applicable minimum age. We do not knowingly collect personal data from children who do not meet the age requirement.</p>
+
+  <h2>4. User Account</h2>
+  <p>You may use the App as a guest without creating an account. Guest data is synced to Firebase under an anonymous identifier. You may optionally set a backup password to encrypt your data. Guest data cannot be recovered on a different device without an account.</p>
+  <p>To use full cloud backup features, you must create an account using Google Sign-In or email/password. You are responsible for maintaining the confidentiality of your account credentials.</p>
+  <p>You are responsible for all activity that occurs under your account.</p>
+
+  <h2>5. User Content</h2>
+  <p>You retain full ownership of all content you create in the App, including photos, notes, and memories ("User Content").</p>
+  <p>By enabling cloud backup, you grant us a limited, non-exclusive, royalty-free license to store and transmit your User Content solely for the purpose of providing the backup service to you. We do not use your content for any other purpose.</p>
+  <p>You represent that your User Content does not violate any applicable laws or third-party rights.</p>
+
+  <h2>6. Acceptable Use</h2>
+  <p>You agree not to use the App to:</p>
+  <ul>
+    <li>Upload content that is illegal, harmful, or violates third-party rights</li>
+    <li>Attempt to reverse-engineer, decompile, or tamper with the App</li>
+    <li>Use the App in any way that could damage, disable, or impair our services</li>
+    <li>Share your account credentials with others</li>
+    <li>Circumvent any security measures of the App</li>
+  </ul>
+
+  <h2>7. In-App Purchases and Premium Features</h2>
+  <p>The App offers optional premium features available through in-app purchases ("Premium"). Premium subscriptions are processed through the Apple App Store or Google Play Store.</p>
+  <p>All purchases are final and non-refundable except as required by applicable law or the policies of the respective app store. Subscription renewals can be managed through your App Store or Google Play account settings.</p>
+  <p>Virtual currency ("coins") earned or purchased within the App has no real-world monetary value and cannot be exchanged for cash.</p>
+
+  <h2>8. Privacy</h2>
+  <p>Your use of the App is also governed by our <a href="privacy-policy.html" style="color: var(--accent);">Privacy Policy</a>, which is incorporated into these Terms by reference. Please read it carefully.</p>
+  <p>If you enable cloud backup, your personal data (photos, notes, metadata) is transmitted and stored using Firebase (Google LLC) services. If you set a backup password, your data is encrypted end-to-end and cannot be accessed by us.</p>
+
+  <h2>9. Availability and Modifications</h2>
+  <p>We reserve the right to modify, suspend, or discontinue the App or any feature at any time, with or without notice. We are not liable for any such modification, suspension, or discontinuation.</p>
+  <p>We may update these Terms from time to time. Continued use of the App after changes constitutes acceptance of the updated Terms. We will notify users of material changes through the App.</p>
+
+  <h2>10. Termination</h2>
+  <p>You may stop using the App and delete your account at any time. Upon account deletion, all your cloud data — including Firestore documents, photos in Firebase Storage, and your Firebase Authentication record — is <strong>permanently and immediately removed</strong> from our servers. Feedback messages are anonymized (user ID and email removed). This action is irreversible.</p>
+  <p>We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+
+  <h2>11. Disclaimer of Warranties</h2>
+  <div class="highlight">
+    <p>The App is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+    <p>We do not warrant that the App will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+    <p><strong>We strongly recommend keeping local backups of your important memories.</strong> We are not responsible for data loss caused by device failure, software bugs, or any other reason.</p>
+  </div>
+
+  <h2>12. Limitation of Liability</h2>
+  <p>To the maximum extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of profits, or loss of goodwill, arising out of or in connection with your use of the App.</p>
+  <p>Our total liability to you for any claims arising from these Terms or your use of the App shall not exceed the amount you paid us in the twelve months preceding the claim.</p>
+
+  <h2>13. Governing Law</h2>
+  <p>These Terms are governed by and construed in accordance with the laws of Italy, without regard to its conflict of law provisions. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of Italy.</p>
+  <p>For users in the European Union, mandatory consumer protection laws of your country of residence may also apply.</p>
+
+  <h2>14. Contact</h2>
+  <p>For any questions regarding these Terms, please contact us:</p>
+  <p><strong>Email:</strong> privacy@mydailymemory.app</p>
+  <p>You can also reach us through the feedback feature within the App.</p>
+
+</div>
+
+<!-- ══════════════════════════ ITALIANO ══════════════════════════ -->
+<div class="content lang-it">
+
+  <p><strong>Ultimo aggiornamento:</strong> 5 aprile 2026</p>
+
+  <h2>1. Accettazione dei Termini</h2>
+  <p>Scaricando, installando o utilizzando MyDailyMemory ("l'App"), accetti di essere vincolato dai presenti Termini di Servizio ("Termini"). Se non accetti questi Termini, non utilizzare l'App.</p>
+  <p>I presenti Termini si applicano a tutti gli utenti dell'App, compresi gli utenti anonimi (ospiti) e i titolari di account registrati.</p>
+
+  <h2>2. Descrizione del Servizio</h2>
+  <p>MyDailyMemory è un'app diario personale che ti permette di catturare, conservare e rivivere una foto al giorno con note testuali opzionali, tag di umore e altri metadati. L'App offre sia una modalità solo locale (ospite) sia una modalità di backup cloud per gli utenti registrati.</p>
+
+  <h2>3. Requisiti di Et&agrave;</h2>
+  <p>Devi avere almeno <strong>13 anni</strong> per utilizzare questa App (o <strong>16 anni</strong> nei Paesi UE dove l'et&agrave; del consenso digitale &egrave; 16, come previsto dall'Art. 8 GDPR). Utilizzando l'App, dichiari di soddisfare il requisito di et&agrave; applicabile. Se hai meno di 18 anni, dichiari di avere il consenso del tuo genitore o tutore.</p>
+  <p>L'App non &egrave; rivolta a minori al di sotto dell'et&agrave; minima applicabile. Non raccogliamo consapevolmente dati personali di minori che non soddisfano il requisito di et&agrave;.</p>
+
+  <h2>4. Account Utente</h2>
+  <p>Puoi utilizzare l'App come ospite senza creare un account. I dati degli ospiti vengono sincronizzati su Firebase sotto un identificatore anonimo. Puoi opzionalmente impostare una password di backup per crittografare i tuoi dati. I dati degli ospiti non possono essere recuperati su un dispositivo diverso senza un account.</p>
+  <p>Per utilizzare le funzioni complete di backup cloud, devi creare un account tramite Google Sign-In o email/password. Sei responsabile della riservatezza delle credenziali del tuo account.</p>
+  <p>Sei responsabile di tutte le attività che si svolgono sotto il tuo account.</p>
+
+  <h2>5. Contenuti Utente</h2>
+  <p>Mantieni la piena proprietà di tutti i contenuti che crei nell'App, incluse foto, note e ricordi ("Contenuti Utente").</p>
+  <p>Abilitando il backup cloud, ci concedi una licenza limitata, non esclusiva e gratuita per archiviare e trasmettere i tuoi Contenuti Utente al solo scopo di fornirti il servizio di backup. Non utilizziamo i tuoi contenuti per nessun altro scopo.</p>
+  <p>Dichiari che i tuoi Contenuti Utente non violano alcuna legge applicabile o diritto di terzi.</p>
+
+  <h2>6. Uso Accettabile</h2>
+  <p>Accetti di non utilizzare l'App per:</p>
+  <ul>
+    <li>Caricare contenuti illegali, dannosi o che violino diritti di terzi</li>
+    <li>Tentare di decompilare, fare reverse engineering o manomettere l'App</li>
+    <li>Utilizzare l'App in modo da danneggiare, disabilitare o compromettere i nostri servizi</li>
+    <li>Condividere le credenziali del tuo account con altri</li>
+    <li>Eludere le misure di sicurezza dell'App</li>
+  </ul>
+
+  <h2>7. Acquisti In-App e Funzionalità Premium</h2>
+  <p>L'App offre funzionalità premium opzionali disponibili tramite acquisti in-app ("Premium"). Gli abbonamenti Premium vengono elaborati tramite Apple App Store o Google Play Store.</p>
+  <p>Tutti gli acquisti sono definitivi e non rimborsabili, salvo quanto richiesto dalla legge applicabile o dalle politiche del rispettivo store. I rinnovi degli abbonamenti possono essere gestiti tramite le impostazioni del tuo account App Store o Google Play.</p>
+  <p>La valuta virtuale ("monete") guadagnata o acquistata nell'App non ha valore monetario reale e non può essere convertita in denaro.</p>
+
+  <h2>8. Privacy</h2>
+  <p>Il tuo utilizzo dell'App è regolato anche dalla nostra <a href="privacy-policy.html" style="color: var(--accent);">Informativa sulla Privacy</a>, incorporata nei presenti Termini per riferimento. Ti invitiamo a leggerla attentamente.</p>
+  <p>Se abiliti il backup cloud, i tuoi dati personali (foto, note, metadati) vengono trasmessi e conservati tramite i servizi Firebase (Google LLC). Se imposti una password di backup, i tuoi dati sono cifrati end-to-end e non possono essere accessibili da noi.</p>
+
+  <h2>9. Disponibilità e Modifiche</h2>
+  <p>Ci riserviamo il diritto di modificare, sospendere o interrompere l'App o qualsiasi funzionalità in qualsiasi momento, con o senza preavviso. Non siamo responsabili per tali modifiche, sospensioni o interruzioni.</p>
+  <p>Potremmo aggiornare i presenti Termini di tanto in tanto. L'uso continuato dell'App dopo le modifiche costituisce accettazione dei Termini aggiornati. Informeremo gli utenti di modifiche sostanziali tramite l'App.</p>
+
+  <h2>10. Cessazione</h2>
+  <p>Puoi smettere di utilizzare l'App ed eliminare il tuo account in qualsiasi momento. Al momento dell'eliminazione dell'account, tutti i tuoi dati cloud — inclusi i documenti Firestore, le foto in Firebase Storage e il tuo record Firebase Authentication — vengono <strong>rimossi permanentemente e immediatamente</strong> dai nostri server. I messaggi di feedback vengono anonimizzati (ID utente e email rimossi). Questa azione &egrave; irreversibile.</p>
+  <p>Ci riserviamo il diritto di sospendere o terminare gli account che violano i presenti Termini.</p>
+
+  <h2>11. Esclusione di Garanzie</h2>
+  <div class="highlight">
+    <p>L'App viene fornita <strong>"così com'è"</strong> e <strong>"come disponibile"</strong> senza garanzie di alcun tipo, espresse o implicite.</p>
+    <p>Non garantiamo che l'App sarà ininterrotta, priva di errori o esente da virus o altri componenti dannosi.</p>
+    <p><strong>Ti consigliamo vivamente di conservare backup locali dei tuoi ricordi importanti.</strong> Non siamo responsabili per la perdita di dati causata da guasti al dispositivo, bug software o qualsiasi altro motivo.</p>
+  </div>
+
+  <h2>12. Limitazione di Responsabilità</h2>
+  <p>Nella misura massima consentita dalla legge applicabile, non saremo responsabili per danni indiretti, incidentali, speciali, consequenziali o punitivi, inclusi, a titolo esemplificativo, la perdita di dati, la perdita di profitti o la perdita di avviamento.</p>
+  <p>La nostra responsabilità totale nei tuoi confronti per qualsiasi reclamo derivante dai presenti Termini non supererà l'importo che ci hai pagato nei dodici mesi precedenti al reclamo.</p>
+
+  <h2>13. Legge Applicabile</h2>
+  <p>I presenti Termini sono regolati e interpretati in conformità con le leggi italiane. Qualsiasi controversia derivante dai presenti Termini sarà soggetta alla giurisdizione esclusiva dei tribunali italiani.</p>
+  <p>Per gli utenti nell'Unione Europea, possono applicarsi anche le leggi obbligatorie a tutela dei consumatori del paese di residenza.</p>
+
+  <h2>14. Contatti</h2>
+  <p>Per qualsiasi domanda relativa ai presenti Termini, contattaci:</p>
+  <p><strong>Email:</strong> privacy@mydailymemory.app</p>
+  <p>Puoi anche contattarci tramite la funzione di feedback nell'App.</p>
+
+</div>
+
+<div class="footer">
+  <p>&copy; 2026 MyDailyMemory. All rights reserved.</p>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-en, .lang-it').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-en').forEach(el => {
+      if (lang === 'en') el.classList.add('active');
+    });
+    document.querySelectorAll('.lang-it').forEach(el => {
+      if (lang === 'it') el.classList.add('active');
+    });
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  }
+
+  // Auto-detect language
+  const userLang = navigator.language || 'en';
+  if (userLang.startsWith('it')) setLang('it');
+</script>
+</body>
+</html>
