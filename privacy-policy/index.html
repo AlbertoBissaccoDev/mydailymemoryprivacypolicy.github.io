@@ -122,7 +122,7 @@
   <!-- ==================== ENGLISH ==================== -->
   <div id="lang-en" class="lang-section active">
 
-    <p><strong>Last updated:</strong> May 2, 2026</p>
+    <p><strong>Last updated:</strong> May 16, 2026</p>
     <p>MyDailyMemory ("we", "our", "the app") is a personal memory journal application. We are committed to protecting your privacy and being transparent about the data we collect.</p>
 
     <h2>1. Data We Collect</h2>
@@ -190,25 +190,27 @@
     </div>
 
     <h2>3. Cloud Sync &amp; Third-Party Services</h2>
-    <p>If you create an account (email/password or Google Sign-In), the following data is synced to <strong>Google Firebase</strong>:</p>
+    <p>If you create an account (email/password or Google Sign-In), the following data is synced to the cloud. <strong>Photo files</strong> are stored in <strong>Supabase Storage</strong> (private bucket, see Section 3 services list below); only a storage reference (URL) is kept in <strong>Google Firebase / Firestore</strong>, never the photo bytes themselves. All other memory metadata is stored in Firestore.</p>
 
     <h3>3.1 If you enabled encryption (with backup password):</h3>
     <ul>
-      <li><strong>Memory data (encrypted):</strong> Photos, titles, descriptions, mood, labels</li>
-      <li><strong>Birthday (encrypted):</strong> Stored only as an encrypted blob</li>
+      <li><strong>Photo files (encrypted):</strong> Stored in Supabase Storage as encrypted blobs — Supabase never sees a decryptable image</li>
+      <li><strong>Memory metadata (encrypted):</strong> Titles, descriptions, mood, labels — stored in Firestore as encrypted text</li>
+      <li><strong>Birthday (encrypted):</strong> Stored only as an encrypted blob in Firestore</li>
       <li><strong>In-game progress (NOT encrypted):</strong> Coins, achievements, shop state, daily challenge progress</li>
       <li>Notification preferences</li>
     </ul>
-    <p><strong>What Firebase sees:</strong> Only gibberish for sensitive data. The encrypted content is meaningless to Google, Firebase admins, or anyone without your passphrase.</p>
+    <p><strong>What Firebase / Supabase see:</strong> Only gibberish for sensitive data. The encrypted content is meaningless to Google, Firebase admins, Supabase, or anyone without your passphrase.</p>
 
     <h3>3.2 If you did NOT enable encryption (skipped the password setup):</h3>
     <ul>
-      <li><strong>Memory data (plain text):</strong> Photos, titles, descriptions, mood, labels</li>
-      <li><strong>Birthday (plain text):</strong> Readable on Firebase</li>
+      <li><strong>Photo files (plain bytes):</strong> Stored in Supabase Storage — readable by Supabase infrastructure</li>
+      <li><strong>Memory metadata (plain text):</strong> Titles, descriptions, mood, labels — readable on Firestore</li>
+      <li><strong>Birthday (plain text):</strong> Readable on Firestore</li>
       <li><strong>In-game progress (not encrypted):</strong> Coins, achievements, shop state, daily challenge progress</li>
       <li>Notification preferences</li>
     </ul>
-    <p><strong>What Firebase sees:</strong> All your personal data in readable form. The app developer can access and read it if needed.</p>
+    <p><strong>What Firebase / Supabase see:</strong> All your personal data in readable form. The app developer can access and read it if needed.</p>
     <p>Third-party services used:</p>
     <ul>
       <li><strong>Firebase Authentication</strong> (Google LLC, USA) &mdash; account management</li>
@@ -343,7 +345,7 @@
   <!-- ==================== ITALIANO ==================== -->
   <div id="lang-it" class="lang-section">
 
-    <p><strong>Ultimo aggiornamento:</strong> 2 maggio 2026</p>
+    <p><strong>Ultimo aggiornamento:</strong> 16 maggio 2026</p>
     <p>MyDailyMemory ("noi", "l'app") &egrave; un'applicazione di diario visivo personale. Ci impegniamo a proteggere la tua privacy e ad essere trasparenti sui dati che raccogliamo.</p>
 
     <h2>1. Dati che raccogliamo</h2>
@@ -411,25 +413,27 @@
     </div>
 
     <h2>3. Sincronizzazione cloud e servizi di terze parti</h2>
-    <p>Se crei un account (email/password o Google Sign-In), i seguenti dati vengono sincronizzati su <strong>Google Firebase</strong>:</p>
+    <p>Se crei un account (email/password o Google Sign-In), i dati vengono sincronizzati nel cloud. I <strong>file foto</strong> vengono archiviati in <strong>Supabase Storage</strong> (bucket privato, vedi elenco servizi nella Sezione 3); solo un riferimento di archiviazione (URL) viene conservato in <strong>Google Firebase / Firestore</strong>, mai i byte della foto stessa. Tutti gli altri metadati dei ricordi vengono archiviati su Firestore.</p>
 
     <h3>3.1 Se hai abilitato la crittografia (con password di backup):</h3>
     <ul>
-      <li><strong>Dati dei ricordi (crittografati):</strong> Foto, titoli, descrizioni, umore, etichette</li>
-      <li><strong>Data di nascita (crittografata):</strong> Salvata solo come blob crittografato</li>
+      <li><strong>File foto (crittografati):</strong> Archiviati in Supabase Storage come blob crittografati — Supabase non vede mai un'immagine decifrabile</li>
+      <li><strong>Metadati dei ricordi (crittografati):</strong> Titoli, descrizioni, umore, etichette — archiviati su Firestore come testo crittografato</li>
+      <li><strong>Data di nascita (crittografata):</strong> Salvata solo come blob crittografato su Firestore</li>
       <li><strong>Progressi di gioco (NON crittografati):</strong> Monete, traguardi, stato negozio, progresso sfide giornaliere</li>
       <li>Preferenze notifiche</li>
     </ul>
-    <p><strong>Cosa vede Firebase:</strong> Solo dati incomprensibili per i dati sensibili. I dati crittografati sono privi di significato per Google, gli amministratori di Firebase o chiunque non abbia la tua password di backup.</p>
+    <p><strong>Cosa vedono Firebase / Supabase:</strong> Solo dati incomprensibili per i dati sensibili. I dati crittografati sono privi di significato per Google, gli amministratori di Firebase, Supabase o chiunque non abbia la tua password di backup.</p>
 
     <h3>3.2 Se NON hai abilitato la crittografia (hai saltato l'impostazione della password):</h3>
     <ul>
-      <li><strong>Dati dei ricordi (testo semplice):</strong> Foto, titoli, descrizioni, umore, etichette</li>
-      <li><strong>Data di nascita (testo semplice):</strong> Leggibile su Firebase</li>
+      <li><strong>File foto (byte in chiaro):</strong> Archiviati in Supabase Storage — leggibili dall'infrastruttura Supabase</li>
+      <li><strong>Metadati dei ricordi (testo semplice):</strong> Titoli, descrizioni, umore, etichette — leggibili su Firestore</li>
+      <li><strong>Data di nascita (testo semplice):</strong> Leggibile su Firestore</li>
       <li><strong>Progressi di gioco (non crittografati):</strong> Monete, traguardi, stato negozio, progresso sfide giornaliere</li>
       <li>Preferenze notifiche</li>
     </ul>
-    <p><strong>Cosa vede Firebase:</strong> Tutti i tuoi dati personali in forma leggibile. Lo sviluppatore dell'app può accedervi e leggerli se necessario.</p>
+    <p><strong>Cosa vedono Firebase / Supabase:</strong> Tutti i tuoi dati personali in forma leggibile. Lo sviluppatore dell'app può accedervi e leggerli se necessario.</p>
     <p>Servizi di terze parti utilizzati:</p>
     <ul>
       <li><strong>Firebase Authentication</strong> (Google LLC, USA) &mdash; gestione account</li>
